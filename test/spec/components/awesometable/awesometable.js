@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Module: AwesomeTable', function () {
+describe('AwesomeTable: Module Load', function () {
 
     // load the controller's module
     beforeEach(module('awesometable'));

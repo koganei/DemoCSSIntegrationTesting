@@ -18,6 +18,8 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
+            {pattern: 'app/**/*.css', included: false},
+            'bower_components/jquery/dist/jquery.js',
             'bower_components/angular/angular.js',
             'bower_components/angular-mocks/angular-mocks.js',
             'bower_components/angular-animate/angular-animate.js',
@@ -31,6 +33,12 @@ module.exports = function (config) {
             'test/mock/**/*.js',
             'test/spec/**/*.js'
         ],
+        preprocessors: {
+            // source files, that you wanna generate coverage for
+            // do not include tests or libraries
+            // (these files will be instrumented by Istanbul)
+            'app/components/**/*.js': ['coverage']
+        },
 
         // list of files / patterns to exclude
         exclude: [],
@@ -53,7 +61,8 @@ module.exports = function (config) {
         // Which plugins to enable
         plugins: [
             'karma-phantomjs-launcher',
-            'karma-jasmine'
+            'karma-jasmine',
+            'karma-coverage'
         ],
 
         // Continuous Integration mode
